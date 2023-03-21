@@ -27,5 +27,7 @@ int main(void)
 	}
 	}
 	}
+		putchar('\b');
+		putchar('\b');
 		return (0);
 }
