@@ -7,8 +7,8 @@
 
 int main(void)
 {
-	char char = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
+	char *cantona = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
 
-	putchar(char);
+	putchar(cantona);
 	return (1);
 }
