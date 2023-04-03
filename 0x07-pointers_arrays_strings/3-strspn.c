@@ -15,7 +15,7 @@ unsigned int _strspn(char *s, char *accept)
 	{
 		found = 0;
 		for (int i = 0; accept[i] != '\0'; i++)
-			if (*s == accept[i];
+			if (*s == accept[i])
 			{	length++;
 				found = 1;
 				break;
