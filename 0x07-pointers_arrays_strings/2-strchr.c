@@ -7,7 +7,7 @@
  * Return: s if character is found, NULL otherwise
  */
 
-char *_strchr(char *s, char c);
+char *_strchr(char *s, char c)
 {
 	while (*s != '\0')
 		if (*s == c)
