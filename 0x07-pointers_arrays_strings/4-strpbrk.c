@@ -1,23 +1,26 @@
 #include "main.h"
+
 /**
  * _strpbrk - Entry point
  * @s: string
  * @accept: input string
  * Return: a pointer to the byte in s
  */
+
 char *_strpbrk(char *s, char *accept)
 {
-	for (; *s != '\0'; s++)
-	{
-		char *c = accept;
+		int i;
 
-		for (; *c != '\0'; c++)
+		for (; *s != 0; s++)
 		{
-			if (*s == *c)
+			for (i = 0; accept[i]; i++)
 			{
+			if (*s == accept[i])
 			return (s);
 			}
 		}
-	}
-	return (NULL);
+
+	return ('\0');
 }
+
+
