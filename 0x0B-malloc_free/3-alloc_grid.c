@@ -11,38 +11,36 @@
 
 int **alloc_grid(int width, int height)
 {
-	int **grid;
+	int **arr;
 	int i;
 	int j;
-	int *data;
 
-	if (width <= 0 || height <= 0)
-	{
+	if (height <= 0 || width <= 0)
 		return (NULL);
-	}
-	grid = (int **) malloc(height * sizeof(int *));
 
-	if (grid == NULL)
-	{
-		free(grid);
+	arr = (int **) malloc(sizeof(int *) * height);
+
+	if (arr == NULL)
 		return (NULL);
-	}
-	data = (int *) malloc(width * height * sizeof(int));
-	if (data == NULL)
-	{
-		free(data);
-		return (NULL);
-	}
+
 	for (i = 0; i < height; i++)
 	{
-		grid[i] = data + (i * width);
+		arr[i] = (int *) malloc(sizeof(int) * width);
+		if (arr[i] == NULL)
+		{
+			free(arr);
+			for (j = 0; j <= i; j++)
+				free(arr[j]);
+			return (NULL);
+		}
 	}
+
 	for (i = 0; i < height; i++)
 	{
 		for (j = 0; j < width; j++)
 		{
-			grid[i][j] = 0; /* initializes each element of the 2D array to 0 */
+			arr[i][j] = 0;
 		}
 	}
-	return (grid);
+	return (arr);
 }
