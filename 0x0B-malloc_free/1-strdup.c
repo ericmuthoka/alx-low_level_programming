@@ -13,11 +13,11 @@ char *_strdup(char *str)
 	char *copy;
 
 	/* Allocate memory for the duplicate string */
-	copy = malloc(strlen(str) + 1);
 	if (str == NULL)
 	{
 		return (NULL);
 	}
+	copy = malloc(strlen(str) + 1);
 	if (copy == NULL)
 	{
 		return (NULL);
