@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 	char *num1str;
 	char *num2str;
 	int i, result;
+	int num1, num2;
 
 	if (argc != 3)
 	{
