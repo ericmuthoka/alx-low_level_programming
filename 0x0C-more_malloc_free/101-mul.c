@@ -35,8 +35,10 @@ int main(int argc, char *argv[])
 	for (i = 0; num1str[i] != '\0'; i++)
 	{
 		if (!isdigit(num1str[i]))
+		{
 			printf("Error\n");
 			return (98);
+		}
 	}
 	for (i = 0; num2str[i] != '\0'; i++)
 	{
