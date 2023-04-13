@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 		if (!isdigit(num1str[i]))
 		{
 			printf("Error\n");
-			return (98);
+			exit(98);
 		}
 	}
 	for (i = 0; num2str[i] != '\0'; i++)
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 		if (!isdigit(num2str[i]))
 		{
 			printf("Error\n");
-			return (98);
+			exit(98);
 		}
 	}
 	num1 = atoi(num1str);
