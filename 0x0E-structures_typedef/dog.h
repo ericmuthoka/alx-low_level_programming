@@ -15,4 +15,4 @@ struct dog
 	char *owner;
 };
 
-#endif /* struct dog */
+#endif
