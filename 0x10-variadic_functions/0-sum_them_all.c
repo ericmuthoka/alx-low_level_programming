@@ -19,9 +19,10 @@ int sum_them_all(const unsigned int n, ...)
 
 	for (i = 0; i < n; i++)
 	{
-		sum += va_arg(ap, int); /* same as sum = sum + va_arg(ap, int); */
+		sum += va_arg(ap, int); /*sums & gets  next integer from the va_arg list*/
 	}
-	va_end(ap);
+	va_end(ap); /*cleans up the variable argument list*/
+		   /*frees up resources allocated for the variable argument list*/
 	return (sum);
 }
 
