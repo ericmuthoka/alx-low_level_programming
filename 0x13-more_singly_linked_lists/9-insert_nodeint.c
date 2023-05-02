@@ -9,33 +9,25 @@
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *prev, *current;
-	unsigned int i;
+	if (head == NULL)
+		return (NULL);
 
-	if (*head == NULL)
-		return (-1);
+	if (idx == 0)
+		return (add_nodeint(head, n));
 
-	if (index == 0)
-	{
-		current = *head;
-		*head = current->next;
-		free(current);
-		return (1);
-	}
+	listint_t *prev = get_nodeint_at_index(*head, idx - 1);
 
-	prev = *head;
-	current = prev->next;
-	for (i = 1; i < index && current != NULL; i++)
-	{
-		prev = current;
-		current = current->next;
-	}
+	if (prev == NULL)
+		return (NULL);
 
-	if (current == NULL)
-		return (-1);
+	listint_t *new_node = malloc(sizeof(*new_node));
 
-	prev->next = current->next;
-	free(current);
-	return (1);
+	if (new_node == NULL)
+		return (NULL);
+
+	new_node->n = n;
+	new_node->next = prev->next;
+	prev->next = new_node;
+
+	return (new_node);
 }
-
