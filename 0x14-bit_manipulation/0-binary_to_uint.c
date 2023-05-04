@@ -15,14 +15,17 @@ unsigned int binary_to_uint(const char *b)
 
 	while (*b)
 	{
+		/* If the current character is a valid binary digit */
 		if (*b == '0' || *b == '1')
 		{
 			result <<= 1; /* equivalent to result *= 2 */
+			/* Add the value of the current binary digit to the result */
 			result += (*b - '0');
 			b++;
 		}
 		else
 		{
+			/* If the current character is not a valid binary digit */
 			return (0);
 		}
 	}
