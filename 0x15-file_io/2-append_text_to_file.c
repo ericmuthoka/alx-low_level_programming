@@ -7,12 +7,13 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
+	FILE *fp;
+
 	if (filename == NULL)
 	{
 		return (-1);
 	}
-
-	FILE *fp = fopen(filename, "a");
+	fp = fopen(filename, "a");
 
 	if (fp == NULL)
 	{
