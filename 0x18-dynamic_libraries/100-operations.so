@@ -1,25 +1,37 @@
 #include <stdio.h>
 
-/* This function prints "Hello, world!" to the console. */
-void hello_world() {
-	printf("Hello, world!\n");
-}
-
-/* This function adds two integers and returns the result. */
 int add(int a, int b) {
 	return a + b;
 }
 
-int main() {
-	/* Create a dynamic library called libhello.so. */
-	gcc -shared -fPIC -o libhello.so hello_world.c add.c
+int sub(int a, int b) {
+	return a - b;
+}
 
-		/* Import the dynamic library into Python. */
+int mul(int a, int b) {
+	return a * b;
+}
+
+int div(int a, int b) {
+	return a / b;
+}
+
+int mod(int a, int b) {
+	return a % b;
+}
+
+int main() {
+	gcc -shared -fPIC -o libhello.so add.c sub.c mul.c div.c mod.c
+
 		import ctypes
 		libhello = ctypes.cdll.LoadLibrary("libhello.so")
 
-		/* Call the C functions from Python. */
-		libhello.hello_world()
-		print(libhello.add(10, 20))
+		a = random.randint(-111, 111)
+		b = random.randint(-111, 111)
+		print("{} + {} = {}".format(a, b, libhello.add(a, b)))
+		print("{} - {} = {}".format(a, b, libhello.sub(a, b)))
+		print("{} x {} = {}".format(a, b, libhello.mul(a, b)))
+		print("{} / {} = {}".format(a, b, libhello.div(a, b)))
+		print("{} % {} = {}".format(a, b, libhello.mod(a, b)))
 }
 
