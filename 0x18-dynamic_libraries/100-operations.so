@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+/* This function prints "Hello, world!" to the console. */
+void hello_world() {
+	printf("Hello, world!\n");
+}
+
+/* This function adds two integers and returns the result. */
+int add(int a, int b) {
+	return a + b;
+}
+
+int main() {
+	/* Create a dynamic library called libhello.so. */
+	gcc -shared -fPIC -o libhello.so hello_world.c add.c
+
+		/* Import the dynamic library into Python. */
+		import ctypes
+		libhello = ctypes.cdll.LoadLibrary("libhello.so")
+
+		/* Call the C functions from Python. */
+		libhello.hello_world()
+		print(libhello.add(10, 20))
+}
+
