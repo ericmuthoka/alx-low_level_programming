@@ -1,5 +1,4 @@
 #include "hash_tables.h"
-
 /**
  * hash_table_set - Adds or updates a key/value pair in a hash table
  * @ht: The hash table
