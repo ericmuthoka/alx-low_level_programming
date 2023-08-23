@@ -1,24 +1,6 @@
-# Makefile for the "school" executable
+# This is a Makefile to build the executable school
 
-# Compiler and compiler flags
-CC = gcc
-CFLAGS = -Wall -Wextra -std=c11
+all: school
 
-# Source files
-SOURCES = main.c helper.c
-
-# Object files
-OBJECTS = $(SOURCES:.c=.o)
-
-# Name of the executable
-EXECUTABLE = school
-
-# Default rule to build the executable
-all: $(EXECUTABLE)
-
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(EXECUTABLE) $(OBJECTS)
-
-# Rule to clean up object files and the executable
-clean:
-	rm -f $(OBJECTS) $(EXECUTABLE)
+school: main.c
+	gcc -o school main.c
