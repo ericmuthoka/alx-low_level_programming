@@ -1,0 +1,24 @@
+# Makefile for the "school" executable
+
+# Compiler and compiler flags
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c11
+
+# Source files
+SOURCES = main.c helper.c
+
+# Object files
+OBJECTS = $(SOURCES:.c=.o)
+
+# Name of the executable
+EXECUTABLE = school
+
+# Default rule to build the executable
+all: $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(EXECUTABLE) $(OBJECTS)
+
+# Rule to clean up object files and the executable
+clean:
+	rm -f $(OBJECTS) $(EXECUTABLE)
